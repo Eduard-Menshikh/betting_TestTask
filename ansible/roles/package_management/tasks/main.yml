@@ -1,0 +1,14 @@
+---
+- name: Update apt packages
+  apt:
+    update_cache: yes
+
+- name: Upgrade all packages
+  apt:
+    upgrade: dist
+
+- name: Install additional utilities
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ additional_packages }}"

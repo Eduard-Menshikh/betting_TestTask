@@ -1,0 +1,20 @@
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Copy Nginx vhost configuration
+  template:
+    src: nginx.conf
+    dest: /etc/nginx/conf.d/static.conf
+  notify:
+    - Reload Nginx
+
+- name: Ensure Nginx is running and enabled
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+

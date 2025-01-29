@@ -1,0 +1,16 @@
+---
+- name: Ensure the target directory exists
+  file:
+    path: /var/www/html/images
+    state: directory
+    mode: '0755'
+
+- name: Copy JPEG images to the server
+  copy:
+    src: "{{ item }}"
+    dest: /var/www/html/images/
+    owner: root
+    group: root
+    mode: '0644'
+  with_fileglob:
+    - "{{ playbook_dir }}/roles/static_image_upload/files/*.jpeg"

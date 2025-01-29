@@ -1,0 +1,25 @@
+---
+- name: Manage users and groups if state is present
+  user:
+    name: "{{ item.name }}"
+    shell: "{{ item.shell }}"
+    state: "{{ item.state }}"
+    password: "{{ item.password | password_hash('sha512') }}"
+    groups: "{{ item.groups | join(',') }}"
+  loop: "{{ users }}"
+  when: item.state == 'present'
+
+- name: Add SSH key for users
+  authorized_key:
+    user: "{{ item.name }}"
+    key: "{{ item.ssh_key }}"
+  loop: "{{ users }}"
+  when: item.state == 'present' and item.ssh_key is defined
+
+- name: Remove users if state is absent
+  user:
+    name: "{{ item.name }}"
+    state: absent
+    remove: "{{ item.remove_home_dir | default(false) }}"
+  loop: "{{ users }}"
+  when: item.state == 'absent'

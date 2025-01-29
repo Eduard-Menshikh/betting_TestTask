@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+
+  roles:
+    - package_management
+    - user_management
+    - zsh_installation
+    - ssh_configuration
+    - nginx_setup
+    - static_image_upload

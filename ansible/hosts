@@ -1,0 +1,2 @@
+[TEST]
+test ansible_host=localhost ansible_port=2222 ansible_user=ansible ansible_ssh_pass=P@ssw0rd ansible_become_pass=P@ssw0rd ansible_host_key_checking=False

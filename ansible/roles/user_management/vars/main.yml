@@ -1,0 +1,17 @@
+users:
+  - name: "user1"
+    shell: "/bin/bash"
+    state: "present"
+    ssh_key: "ssh-rsa test-key"
+    password: "P@ssw0rd"
+    groups:
+      - "sudo"
+
+  - name: "user3"
+    shell: "/bin/zsh"
+    state: "absent"
+    ssh_key: ""
+    password: ""
+    remove_home_dir: yes
+    groups:
+      - "user3"

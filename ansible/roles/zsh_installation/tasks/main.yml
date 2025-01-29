@@ -1,0 +1,23 @@
+---
+- name: Install Zsh
+  apt:
+    name: zsh
+    state: present
+  become: yes
+
+- name: Install Oh My Zsh for users with Zsh shell
+  become: yes
+  shell: |
+    sudo -u "{{ item.name }}" HOME=/home/{{ item.name }} RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    creates: /home/{{ item.name }}/.oh-my-zsh
+  loop: "{{ users }}"
+  when: item.shell == '/bin/zsh'
+
+- name: Change default shell to Zsh for users
+  become: yes
+  user:
+    name: "{{ item.name }}"
+    shell: /usr/bin/zsh
+  loop: "{{ users }}"
+  when: item.shell == '/bin/zsh'

@@ -1,0 +1,7 @@
+---
+additional_packages:
+  - git
+  - curl
+  - htop
+  - ncdu
+  - nano
