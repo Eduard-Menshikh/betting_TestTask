@@ -13,6 +13,7 @@
     creates: /home/{{ item.name }}/.oh-my-zsh
   loop: "{{ users }}"
   when: item.shell == '/bin/zsh'
+  ignore_errors: yes
 
 - name: Change default shell to Zsh for users
   become: yes
