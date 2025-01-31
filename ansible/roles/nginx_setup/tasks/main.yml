@@ -5,6 +5,11 @@
     state: present
     update_cache: yes
 
+- name: Remove default site configuration if it exists
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
 - name: Copy Nginx vhost configuration
   template:
     src: nginx.conf
