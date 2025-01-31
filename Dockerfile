@@ -10,4 +10,6 @@ RUN useradd -m ansible && \
 
 RUN mkdir /var/run/sshd
 
-EXPOSE 22
+RUN mkdir -p /var/www/html/images && chmod 777 /var/www/html/images
+
+CMD ["/usr/sbin/sshd", "-D"]
