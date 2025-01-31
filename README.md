@@ -14,7 +14,7 @@ docker compose up -d
 
 
 2. **Запустите Ansible Playbook**:
-ansible-playbook -i ansible/hosts ansible/playbook
+ansible-playbook -i ansible/hosts ansible/playbook.yml
 
 3. **Подключитесь к контейнеру через SSH**:
 ssh user1@localhost -p 2222
