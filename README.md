@@ -25,6 +25,6 @@ ssh user1@localhost -p 2222
 После выполнения вышеуказанных шагов, вы сможете получить доступ к следующим URL:
 
 - **Основной URL для изображений**: [http://ip:8080/images/](http://ip:8080/images/)
-- **URL конкретного изображения**: [http://ip:8080/images/VFfoCsO.jpeg](http://ip:8080/images/VFfoCsO.jpeg)
+- **URL конкретного изображения**: [http://ip:8080/images/152501.svg](http://ip:8080/images/152501.svg)
 
 Замените ip на ваш фактический IP-адрес.

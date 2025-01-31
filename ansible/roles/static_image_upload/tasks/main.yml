@@ -7,7 +7,7 @@
     owner: www-data
     group: www-data
 
-- name: Copy JPEG images to the server
+- name: Copy images to the server
   copy:
     src: "{{ item }}"
     dest: /var/www/html/images/
@@ -15,4 +15,4 @@
     group: www-data
     mode: '0644'
   with_fileglob:
-    - "{{ playbook_dir }}/roles/static_image_upload/files/*.jpeg"
+    - "{{ playbook_dir }}/roles/static_image_upload/files/*"
